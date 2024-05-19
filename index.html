@@ -223,11 +223,11 @@
     </style>
   </head>
   <body>
-    @if(session('success'))
+    <!-- @if(session('success'))
     <script>
       alert("{{ session('success') }}");
     </script>
-    @endif
+    @endif -->
     <audio id="myAudio" autoplay loop>
       <source src="assets/bgsound.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
@@ -482,7 +482,7 @@
             method="post"
             class="wish-form tw-text-slate-50"
           >
-            @csrf
+            <!-- @csrf -->
             <label for="sender" class="text-start w-100 tw-mb-[10px]"
             style="color: #333333"
               >Nama:</label
@@ -521,21 +521,21 @@
             class="tw-max-h-[25vw] tw-mt-[20px] tw-overflow-y-scroll md:tw-max-h-[14.5vw]"
             style="color: #333333"
           >
-          @foreach($wishes as $wish)
+          <!-- @foreach($wishes as $wish)
             <div class="tw-p-[5px] border-bottom border-3 border-secondary md:tw-text-lg">
               {{ $wish->sender }}<br />
               {{ $wish->wish }}
             </div>
-            @endforeach
+            @endforeach -->
             
-            <!-- <div class="tw-p-[5px] border-bottom border-3 border-secondary md:tw-text-lg">
+            <div class="tw-p-[5px] border-bottom border-3 border-secondary md:tw-text-lg">
               Tabita<br />
               Happy sweet seventeen friend!
             </div>
             <div class="tw-p-[5px] border-bottom border-3 border-secondary md:tw-text-lg">
               Tabita<br />
               Happy sweet seventeen friend!
-            </div> -->
+            </div>
           </div>
           <p
             class="mb-0 tw-mt-[20px] fs-5 fw-light md:tw-mt-[6vw] md:tw-pb-[1vw]"
