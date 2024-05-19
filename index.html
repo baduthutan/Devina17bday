@@ -223,6 +223,11 @@
     </style>
   </head>
   <body>
+    @if(session('success'))
+    <script>
+      alert("{{ session('success') }}");
+    </script>
+    @endif
     <audio id="myAudio" autoplay loop>
       <source src="assets/bgsound.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
@@ -477,7 +482,7 @@
             method="post"
             class="wish-form tw-text-slate-50"
           >
-            <!-- @csrf -->
+            @csrf
             <label for="sender" class="text-start w-100 tw-mb-[10px]"
             style="color: #333333"
               >Nama:</label
@@ -516,18 +521,21 @@
             class="tw-max-h-[25vw] tw-mt-[20px] tw-overflow-y-scroll md:tw-max-h-[14.5vw]"
             style="color: #333333"
           >
+          @foreach($wishes as $wish)
             <div class="tw-p-[5px] border-bottom border-3 border-secondary md:tw-text-lg">
+              {{ $wish->sender }}<br />
+              {{ $wish->wish }}
+            </div>
+            @endforeach
+            
+            <!-- <div class="tw-p-[5px] border-bottom border-3 border-secondary md:tw-text-lg">
               Tabita<br />
               Happy sweet seventeen friend!
             </div>
             <div class="tw-p-[5px] border-bottom border-3 border-secondary md:tw-text-lg">
               Tabita<br />
               Happy sweet seventeen friend!
-            </div>
-            <div class="tw-p-[5px] border-bottom border-3 border-secondary md:tw-text-lg">
-              Tabita<br />
-              Happy sweet seventeen friend!
-            </div>
+            </div> -->
           </div>
           <p
             class="mb-0 tw-mt-[20px] fs-5 fw-light md:tw-mt-[6vw] md:tw-pb-[1vw]"
@@ -615,6 +623,34 @@
                   alt="..."
                 />
               </div>
+              <div class="carousel-item px-4">
+                <img
+                  src="assets/slide_6/foto7.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item px-4">
+                <img
+                  src="assets/slide_6/foto8.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item px-4">
+                <img
+                  src="assets/slide_6/foto9.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item px-4">
+                <img
+                  src="assets/slide_6/foto10.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
             <button
               class="carousel-control-prev"
@@ -650,16 +686,15 @@
         id="overlay-contents"
         class="d-flex flex-column justify-content-center align-items-center"
       >
-        <!-- <div class="tw-py-[4vh]"></div> -->
         <div class="tw-bg-[url('assets/cover/bgcover_1.webp')] dear-box tw-translate-y-[10vw] md:tw-translate-y-[11vw]">
-          <h4 class="tw-translate-y-[-12vw] text-light mobile-com">Tabita</h4>
-          <h3 class="tw-translate-y-[-12vw] text-light ds-com">Tabita</h>
+          <h4 class="tw-translate-y-[-12vw] text-light mobile-com">{{ $guest->name }}</h4>
+          <h3 class="tw-translate-y-[-12vw] text-light ds-com">{{ $guest->name }}</h>
         </div>
         <p
           class="mb-0 mt-2 fw-light h6"
           
         >
-          Valid for: 1 person
+          Valid for: {{ $guest->valid_for }} person
         </p>
         <p
           class="mb-0 h6"
